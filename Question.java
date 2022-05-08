@@ -6,6 +6,8 @@ public abstract class Question {
     String correctAnswer;
     static int nCorrectAnswer = 0;
     static int nQuestion = 0;
+
+    static int nRate = 0;
      QuestionDialog question;
 
     //this creates an instance of the QuestionDialog class
@@ -48,10 +50,22 @@ public void check() {
         JOptionPane.showMessageDialog(null, "Correct!");
         nCorrectAnswer++;
     } else {
-        JOptionPane.showMessageDialog(null, "Incorrect");
+        JOptionPane.showMessageDialog(null, "Incorrect. The answer is " + correctAnswer);
     }
 
 }
     public static void showResults() {
         JOptionPane.showMessageDialog(null, nCorrectAnswer + " correct out of questions " + nQuestion);
+}
+public void Rate(){
+        String question = ask();
+    switch (question) {
+        case "Awful" -> nRate += 1;
+        case "Not bad" -> nRate += 3;
+        case "Satisfactory" -> nRate += 5;
+    }
+
+}
+    public static void rateResults() {
+        JOptionPane.showMessageDialog(null,"You've rated " +nRate + " stars on your reviews. Thank you for your time!");
 }}

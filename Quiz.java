@@ -83,4 +83,10 @@ package com.SuperPower;
             question.check();
 
             Question.showResults();
+
+            question = new RateQuestion(
+                    "How did you find the questions given to you?"
+            );
+            question.Rate();
+            Question.rateResults();
         }}
